@@ -55,7 +55,7 @@ async function wait(ms) {
 async function collectBonus(email,password){
   let token = "Bearer " + await getToken(email,password)
   if(token.split("Bearer ")[1] === "undefined") {
-    clearInterval(collectInterval)
+    failAmount++
     return console.log(`Could not log into account with email ${email}.`)
   }
   await sendReq(JSON.stringify({}),"https://dev-nakama.winterpixel.io/v2/rpc/collect_timed_bonus",token).then(async(res) => {
