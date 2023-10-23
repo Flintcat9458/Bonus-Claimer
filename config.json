@@ -1,0 +1,13 @@
+{
+    "delay":30,
+    "accounts":[
+        {
+            "email":"account1",
+            "password":"account"
+        },
+        {
+            "email":"account2",
+            "password":"-"
+        }
+    ]
+}
