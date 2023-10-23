@@ -1,7 +1,6 @@
-
 const fs = require('fs')
 const axios = require('axios')
-const prompt = require('prompt-sync')({sigint: true})
+//const prompt = require('prompt-sync')({sigint: true})
 //const WebSocket = require('ws')
 const configFile = JSON.parse(fs.readFileSync("./config.json"))
 const accounts = configFile.accounts
@@ -74,6 +73,7 @@ async function collectBonus(email,password){
 }
 async function index(){
   while(0 !== 1){
+    failAmount = 0
     let requests = []
     for(const account of accounts){
       requests.push(collectBonus(account.email,account.password))
