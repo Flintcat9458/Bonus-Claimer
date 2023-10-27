@@ -75,10 +75,8 @@ async function index(){
   while(0 !== 1){
     failAmount = 0
     let requests = []
-    for(const account of accounts){
-      requests.push(collectBonus(account.email,account.password))
-    }
-    await Promise.all(requests).then(() => console.log(`Claimed coins for ${failAmount !== 0 ? accounts.length - failAmount : accounts.length} accounts.`))
+    accounts.forEach((account) => requests.push(collectBonus(account.email,account.password)))
+    await Promise.all(requests).then(() => console.log(`Claimed coins for ${accounts.length - failAmount} accounts.`))
     await wait(timerDelay + Math.floor(Math.random() * (100 - 10) + 10))
   }
 }
