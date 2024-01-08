@@ -72,7 +72,7 @@ async function collectBonus(email,password){
 })
 }
 async function index(){
-  while(0 !== 1){
+  while(true){
     failAmount = 0
     let requests = []
     accounts.forEach((account) => requests.push(collectBonus(account.email,account.password)))
